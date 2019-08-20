@@ -33,6 +33,8 @@ function crearPokemon(pokemon, num){
     let nombre = item.getElementsByTagName("p")[0]
     nombre.textContent = pokemon.name
 
+    let nombrestat = item.getElementsByTagName("p")[0]
+    nombrestat.textContent = pokemon.name
 }
 
 consultarPokemones()

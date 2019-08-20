@@ -1,31 +1,22 @@
  body {
-
     font-family: Arial;
     font-size: 16px;
     margin: 0;
     background-color: cyan;
-    
-
 }
 
 .title {
-
     text-align: center;
-
 }
 
 .pokemon-list{
-    
     display: grid;
     grid-template-columns:  1fr 100px 1fr;
     
-
     max-width: 800px;
     margin: auto;
 
     margin-top: 20px;
-    
-        
 }
 
 .pokemon{
@@ -74,3 +65,12 @@
 
     font-size: 35px;
 }
+
+.container{
+
+   display: inline;
+   
+   
+
+}
+
