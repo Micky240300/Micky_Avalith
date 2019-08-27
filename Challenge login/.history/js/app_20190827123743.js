@@ -109,6 +109,9 @@ function postBody() {
         .catch(err => message.innerHTML =  `<h6 class= "text-danger">Ingrese los datos</h6>`
         )
 }
+
+
+
 submit.addEventListener("click", function (e){
     e.preventDefault();
     postLogin();
@@ -118,11 +121,11 @@ query.addEventListener("click", function (e){
     e.preventDefault();
     getQuery();
  })
-params.addEventListener("click", function (e){
+ params.addEventListener("click", function (e){
     e.preventDefault();
     getParams();
  })
-body.addEventListener("click", function (e){
+ body.addEventListener("click", function (e){
     e.preventDefault();
     postBody();
  })

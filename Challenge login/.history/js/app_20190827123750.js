@@ -122,7 +122,7 @@ params.addEventListener("click", function (e){
     e.preventDefault();
     getParams();
  })
-body.addEventListener("click", function (e){
+ body.addEventListener("click", function (e){
     e.preventDefault();
     postBody();
  })
