@@ -66,11 +66,10 @@
     font-size: 35px;
 }
 
-.container{
+.row{
 
-   display: inline;
-   
-   
+    background-color: #4CAF50;
 
+    margin-top: 20px;
 }
 
