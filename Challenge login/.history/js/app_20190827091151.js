@@ -1,2 +1,0 @@
-const submit = document.qu
-         
