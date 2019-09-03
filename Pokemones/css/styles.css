@@ -1,26 +1,23 @@
 body{
     background-color: greenyellow;
 }
-
 .container-fluid {
     font-family: Arial;
     font-size: 16px;
     margin: auto;
-    background-color: blueviolet;
+    background-color: rgb(89, 177, 129);
 }
-
 .text-center{
     text-align: center;
 }
 .row{
     background-color: burlywood;
     margin-top: 20px;
+    margin: auto;
 }
-
 #data{
     background-color: cadetblue;  
 }
-
 .history{
     font-size: 40px;
     font-weight: bold;
