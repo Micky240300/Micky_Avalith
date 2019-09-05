@@ -8,17 +8,18 @@ let pokeArray = [];
 
 function dataApi() { 
     const pkmn = document.querySelector('#pkmn').value.toLowerCase(); 
+    if (pkmn === '') return
     fetch(`https://pokeapi.co/api/v2/pokemon/${pkmn}/`)
         .then(res => res.json()) 
         .then(async res => {
             const img = res.sprites.front_default;
-                const name = res.name;
-                    const id = res.id;
-                        const type = res.types.map(e => e.type.name).join(", ");
-                            const abilities = res.abilities.map(e => e.ability.url);
-                                const language = await fetchAbilities(abilities);  
-                                    const location = await fetchLocations(id);
-                                        const pokeData = {img, name, id, type, language, location}; 
+            const name = res.name;
+            const id = res.id;
+            const type = res.types.map(type => type.type.name).join(", ");
+            const abilities = res.abilities.map(e => e.ability.url);
+            const language = await fetchAbilities(abilities);  
+            const location = await fetchLocations(id);
+            const pokeData = {img, name, id, type, language, location}; 
             printPokemon(pokeData); 
             imgStorage = img;
             
@@ -34,7 +35,7 @@ const fetchAbilities = async abilities => {
     const fetched = abilities.map(url => fetch(url).then(res => res.json())) 
     const res = await Promise.all(fetched)
     return res.map(res => {
-        const abyLanguage = res.names.find(e => e.language.name === "en");
+        const abyLanguage = res.names.find(name => name.language.name === "en");
         const en = abyLanguage.name;
         return en;
     }).join(", ")
@@ -82,15 +83,15 @@ function savePokemon() {
 
 function loadPokemon() {
     pokeCaptured.innerHTML = "";
-    pokeArray = JSON.parse(localStorage.getItem('pokemon'));
 
-    if(pokeArray === null){
-        pokeArray = [];
-    } else {
-        pokeArray.forEach(e => {
-            pokeCaptured.innerHTML +=  `<label><img src="${e.img}"></label>`;
-        });
-    }
+    pokeArray.forEach(e => {
+        pokeCaptured.innerHTML +=  `
+            <div class="captured-pokemon">
+                <img src="${e.img}">
+                <span class="close-pokemon">X</span>
+            </div>
+        `;
+    });
 }
 
 function deletePokemon(img) {

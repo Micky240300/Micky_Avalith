@@ -52,3 +52,22 @@ body{
 		-moz-box-shadow: 0 0 20px #003300 inset;
 		-o-box-shadow: 0 0 20px #003300 inset;
 	}
+
+
+	.captuerd-container {
+		/* border: 1px solid; */
+		position: relative;
+		display: inline;
+	}
+
+	.close-pokemon {
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		cursor: pointer;
+	}
+
+	.captured-pokemon {
+		border: 1px solid grey;
+		position: relative;		
+	}
