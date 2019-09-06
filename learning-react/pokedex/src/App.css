@@ -1,0 +1,10 @@
+.App{
+  padding-top: 4rem;
+  min-height: 100vh;
+}
+.navbar{
+  background-color: lightcoral !important;
+}
+a{
+ color: teal !important;
+}

@@ -23,10 +23,7 @@ handleInput(e){
 handleSubmit(e){
     e.preventDefault();
     this.props.onAddTodo(this.state);
-    console.log('sendi');
 }
-
-
   render(){
       return(
         <div className="card">
