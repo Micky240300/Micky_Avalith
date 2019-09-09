@@ -16,6 +16,10 @@ const Card = styled.div`
     &:hover{
         box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px rgba(0, 0, 0, 0.22);
     }
+    -moz-user-select: none;
+    -website-user-select: none;
+    user-select: none;
+    -o-user-select: none;
 `;
 
 export default class PokemonCard extends Component {
@@ -45,7 +49,7 @@ state = {
                     <Card className="card">
                         <h5 className="card-header">{this.state.pokemonIndex}</h5>
                             {this.state.imageLoading ? (
-                                <img 
+                                <img
                                 className="card-img-top rounded mx-auto d-block mt-2" 
                                 src={ loading } 
                                 style={{ width: '5em', height: '5em'}}
