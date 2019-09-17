@@ -8,11 +8,24 @@ function logs(req, res, next) {     //middleware
   next();
 }
 
+function token(req, res, next) { // middleware authorization token
+  console.log(req.header('Authorization'));
 
+   if (req.header('Authorization') == 'TOKENVALIDO') {
+     next();    
+  }else{
+    
+    return res
+    .status(401)
+    .send("Authorization error");
+
+  }
+}
 
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(logs);
+app.use(token);
 
 // app.all('/user', (req, res, next) => {
 //   console.log('nice');
