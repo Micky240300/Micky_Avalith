@@ -19,11 +19,11 @@ connection.connect();
 
 app.get('/users', function (req, res){
     connection.query('SELECT * FROM users', function (err, result){
-        
+
         if (err) throw err; 
+
         res.send(result);
         console.log(result);
-
     })
 })
 
