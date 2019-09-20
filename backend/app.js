@@ -1,8 +1,7 @@
 const express = require('express');
 const mysql = require('mysql');
 const app = express();
-
-var bodyParser = require('body-parser')
+const bodyParser = require('body-parser')
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
@@ -27,6 +26,8 @@ app.get('/users', function (req, res){
     })
 })
 
-app.listen(3000, function () {
-    console.log('Running on port 3000!');
-});
+//////////////////////////////////////////////
+app.listen(3000, function () {              //
+    console.log('Running on port 3000!');   //
+});                                         //
+//////////////////////////////////////////////
