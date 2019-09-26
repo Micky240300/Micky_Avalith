@@ -37,11 +37,15 @@ CREATE TABLE `skill`.`pets` (
       CONSTRAINT pk_user_id PRIMARY KEY (id)
     );
 
-    create table pets(
+    CREATE TABLE games(
+    id INT NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(60) NOT NULL,
+    release_date DATETIME NOT NULL,
+    PRIMARY KEY (`id`));
 
+    CREATE TABLE usersgames(
+      users_id bigint NOT NULL,
+      game_id int NOT NULL,
+      constraint fk_users_id foreign key (users_id) references users (id),
+      constraint fk_game_id foreign key (game_id) references games (id)
     );
-
-
-insert into pets (name, user_id) value ('Lolo','1');
-insert into pets (name, user_id) value ('Juan','2');
-insert into pets (name, user_id) value ('jere','4');
