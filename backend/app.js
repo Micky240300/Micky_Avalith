@@ -17,6 +17,13 @@ const connection = mysql.createConnection({
 
 connection.connect();
 
+app.get('/', function (req, res){
+   
+        res.send("yo wasup!");
+        
+})
+
+
 app.get('/users', function (req, res){
     connection.query('SELECT * FROM users', function (err, result){
 
@@ -41,7 +48,9 @@ app.get('/user/pets', function (req, res){
             console.log(resultItem);
             if (test[resultItem.username]) {
                 test[resultItem.username].pets.push(resultItem.pet_name)
+
             }else{
+
                 test[resultItem.username] = {
                     id: resultItem.id,
                     username: resultItem.username,
@@ -55,29 +64,32 @@ app.get('/user/pets', function (req, res){
     })
 })
 
+
 app.get('/user/games', function (req, res){
+
+    let game = req.query.gamename;
+
+    if (game = game) {
+
+        connection.query('SELECT users.id, users.username, games.name FROM users INNER JOIN usersgames ON usersgames.users_id = users.id INNER JOIN games ON usersgames.game_id = games.id WHERE games.name = ?',[game], function (error, result){
+
+            if (error) throw error; 
     
-    connection.query('SELECT users.id, users.username, games.name FROM users INNER JOIN usersgames ON usersgames.users_id = users.id INNER JOIN games ON usersgames.game_id = games.id', function (error, result){
+            res.send(result);
+            console.log(result);
+        })
 
-        if (error) throw error; 
+    } else {
 
-        res.send(result);
-        console.log(result);
-    })
+        connection.query('SELECT users.id, users.username, games.name FROM users INNER JOIN usersgames ON usersgames.users_id = users.id INNER JOIN games ON usersgames.game_id = games.id', function (error, result){
+
+            if (error) throw error; 
+    
+            res.send(result);
+            console.log(result);
+        })
+    }
 })
-
-// EN PROCESO app.get('/user/games', function (req, res){
-
-//     let game = req.query.gamename;
-    
-//     connection.query('SELECT users.id, users.username, games.name FROM users INNER JOIN usersgames ON usersgames.users_id = users.id INNER JOIN games ON usersgames.game_id = games.id WHERE games.name = ?',[game], function (error, result){
-
-//         if (error) throw error; 
-
-//         res.send(result);
-//         console.log(result);
-//     })
-// })
 
 //////////////////////////////////////////////
 app.listen(3000, function () {              //
