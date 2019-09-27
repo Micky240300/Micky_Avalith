@@ -58,9 +58,9 @@ app.get('/user/pets', function (req, res){
                 }
             }
         }
-
-        res.send(test);
-        console.log(test);
+        
+        console.log(Object.values(test));
+        res.send(Object.values(test));
     })
 })
 
