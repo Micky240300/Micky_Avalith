@@ -53,6 +53,7 @@ state = {
                                 className="card-img-top rounded mx-auto d-block mt-2" 
                                 src={ loading } 
                                 style={{ width: '5em', height: '5em'}}
+                                alt="pokemon"
                                 />
                             ) : null}
                             

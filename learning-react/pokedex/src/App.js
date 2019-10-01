@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {HashRouter as Router, Route, Switch} from 'react-router-dom';
+import {HashRouter as Router} from 'react-router-dom';
 
 import NavBar from "./components/layout/NavBar";
 import Dashboard from "./components/layout/Dashboard";
